@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tyller Six 8 | Distribuição e Divulgação</title>
+    <style>
+        :root {
+            --primary: #ff3e3e;
+            --dark: #0f0f0f;
+            --grey: #1e1e1e;
+            --text: #ffffff;
+            --input-bg: #2a2a2a;
+        }
+
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--dark); color: var(--text); scroll-behavior: smooth; }
+        
+        /* Header & Nav */
+        header { background: var(--grey); padding: 40px 20px; text-align: center; border-bottom: 3px solid var(--primary); }
+        header h1 { margin: 0; letter-spacing: 3px; color: var(--primary); font-size: 2.5rem; text-transform: uppercase; }
+        
+        nav { display: flex; justify-content: center; background: #000; padding: 12px; position: sticky; top: 0; z-index: 1000; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; margin: 5px 15px; font-weight: bold; font-size: 0.85rem; transition: 0.3s; }
+        nav a:hover { color: var(--primary); }
+
+        .container { max-width: 1100px; margin: 20px auto; padding: 0 20px; display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
+
+        /* Projetos Horizontais */
+        .projects-section { grid-column: 1 / -1; margin-bottom: 20px; }
+        .projects-grid { display: flex; gap: 20px; overflow-x: auto; padding: 15px 5px; }
+        .project-card { 
+            min-width: 180px; background: var(--grey); border-radius: 12px; 
+            padding: 20px; text-align: center; border: 1px solid #333; 
+        }
+        .project-card img { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
+
+        /* Feed e Posts */
+        .post { background: var(--grey); padding: 25px; border-radius: 12px; margin-bottom: 25px; border: 1px solid #222; }
+        .post img { width: 100%; border-radius: 8px; height: 350px; object-fit: cover; }
+        .audio-player { width: 100%; margin: 15px 0; filter: invert(100%) hue-rotate(180deg); }
+        
+        /* Formulário de Envio Externo */
+        .external-post-box { 
+            background: linear-gradient(145deg, #1e1e1e, #252525); 
+            padding: 30px; border-radius: 15px; border: 2px dashed var(--primary); 
+            margin-bottom: 40px;
+        }
+        .form-group { margin-bottom: 15px; }
+        input, textarea { 
+            width: 100%; padding: 12px; border-radius: 6px; border: none; 
+            background: var(--input-bg); color: white; box-sizing: border-box;
+        }
+        
+        .btn { 
+            width: 100%; padding: 15px; border: none; border-radius: 6px; 
+            cursor: pointer; font-weight: bold; text-transform: uppercase; transition: 0.3s;
+        }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-share { background: #444; color: white; margin-top: 10px; }
+
+        /* Sidebar */
+        aside { background: var(--grey); padding: 25px; border-radius: 12px; height: fit-content; position: sticky; top: 70px; }
+        .partnership { display: flex; align-items: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #333; }
+        .partnership img { width: 40px; margin-right: 12px; }
+
+        footer { text-align: center; padding: 50px; background: #000; border-top: 1px solid #222; }
+
+        @media (max-width: 850px) { .container { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>TYLLER SIX 8</h1>
+        <p>Distribuição • Divulgação • Projetos</p>
+    </header>
+
+    <nav>
+        <a href="#home">INÍCIO</a>
+        <a href="#projetos">PROJETOS</a>
+        <a href="#musicas">LANÇAMENTOS</a>
+        <a href="#enviar">ENVIAR MÚSICA</a>
+    </nav>
+
+    <div class="container">
+        
+        <section class="projects-section" id="projetos">
+            <h3>PROJETOS EM DESTAQUE</h3>
+            <div class="projects-grid" id="projects-grid"></div>
+        </section>
+
+        <main id="musicas">
+            <section class="external-post-box" id="enviar">
+                <h3>PARTICIPE DA GRADE</h3>
+                <p style="font-size: 0.8rem; color: #aaa;">Envie seu projeto para avaliação e divulgação externa.</p>
+                <form action="https://formspree.io/f/seu-id" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="artista" placeholder="Nome do Artista/Banda" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="titulo" placeholder="Título da Música ou EP" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="url" name="link" placeholder="Link da Música (YouTube/SoundCloud/Drive)" required>
+                    </div>
+                    <textarea name="bio" placeholder="Breve descrição do projeto..."></textarea>
+                    <button type="submit" class="btn btn-primary" style="margin-top: 10px;">SOLICITAR DIVULGAÇÃO</button>
+                </form>
+            </section>
+
+            <h3>LANÇAMENTOS RECENTES</h3>
+            <div id="blog-posts"></div>
+        </main>
+
+        <aside>
+            <h3>PARCERIAS</h3>
+            <div class="partnership">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174876.png" alt="Spotify">
+                <span>Spotify Playlist BR</span>
+            </div>
+            <div class="partnership">
+                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+                <span>Music Promo Network</span>
+            </div>
+            <hr style="border: 0.5px solid #333; margin: 20px 0;">
+            <h3>CONTATO</h3>
+            <p style="font-size: 0.9rem;">Instagram: @tyllersix8</p>
+            <p style="font-size: 0.9rem;">E-mail: contato@tyllersix8.com</p>
+        </aside>
+    </div>
+
+    <footer>
+        <p><strong>Tyller Six 8</strong> &copy; 2026<br>A ponte entre sua música e o mundo.</p>
+    </footer>
+
+    <script>
+        const dadosProjetos = [
+            { nome: "EP Ascensão", artista: "Tyller Family", capa: "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=300", tipo: "EP" },
+            { nome: "Beatmakers 1", artista: "Six 8 Studios", capa: "https://images.unsplash.com/photo-1516280440614-37939bb9258f?w=300", tipo: "ÁLBUM" },
+            { nome: "Trap Angola", artista: "Distro Mix", capa: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=300", tipo: "MIX" }
+        ];
+
+        const dadosMusicas = [
+            {
+                titulo: "Vibe de Verão - DJ Remix",
+                artista: "Tyller Music",
+                imagem: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800",
+                audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+            },
+            {
+                titulo: "Noite em Luanda - Afro Beat",
+                artista: "Six 8 Beats",
+                imagem: "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?w=800",
+                audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+            }
+        ];
+
+        function init() {
+            // Render Projetos
+            document.getElementById('projects-grid').innerHTML = dadosProjetos.map(p => `
+                <div class="project-card">
+                    <img src="${p.capa}">
+                    <br><span style="background:var(--primary); font-size:0.6rem; padding:2px 5px; border-radius:5px;">${p.tipo}</span>
+                    <h4 style="margin:10px 0 5px;">${p.nome}</h4>
+                    <small style="color:#888">${p.artista}</small>
+                </div>
+            `).join('');
+
+            // Render Posts
+            document.getElementById('blog-posts').innerHTML = dadosMusicas.map(m => `
+                <article class="post">
+                    <img src="${m.imagem}">
+                    <h2>${m.titulo}</h2>
+                    <p><strong>Artista:</strong> ${m.artista}</p>
+                    <audio controls class="audio-player"><source src="${m.audio}"></audio>
+                    <div style="display:flex; gap:10px;">
+                        <a href="${m.audio}" download class="btn btn-primary" style="text-decoration:none; text-align:center; flex:1;">BAIXAR</a>
+                        <button class="btn btn-share" style="flex:1;" onclick="alert('Link copiado!')">COMPARTILHAR</button>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>
